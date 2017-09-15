@@ -1,0 +1,15 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta name="robots" content="noindex" />
+</head>
+<body>
+{% unless globals.get.json -%}
+{module_data resource="customers" version="v3" fields="id" skip="0" limit="1" where="\{'username':'{{globals.get.username}}'\}" collection="UserLookUp"}
+{module_data resource="customers" version="v3" fields="secureZone" subresource="securezones" resourceId="{{UserLookUp.items[0].id}}" skip="0" limit="10" collection="SecureZoneList"}
+{% if SecureZoneList.items and SecureZoneList.totalItemsCount > 0 %}
+<div class="js-user-found">true</div>
+{% endif -%}
+{% endunless -%}
+</body>
+</html>

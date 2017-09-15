@@ -1,0 +1,16 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta name="robots" content="noindex" />
+</head>
+<body>
+{% comment -%} 
+<!--
+Retrieve VID and VSV which gets stored as the Site ID appended to VID and VSV
+--> 
+{% endcomment -%}
+{% assign vid_id = globals.site.id | prepend:"VID" -%}
+{% assign vsv_id = globals.site.id | prepend:"VSV" -%}
+<div class="js-login-data" data-vid="{{globals.cookie.[vid_id]}}" data-vsv="{{globals.cookie.[vsv_id]}}" style="display: none"></div>
+</body>
+</html>

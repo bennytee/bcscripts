@@ -1,0 +1,71 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta name="robots" content="noindex" />
+</head>
+<body>
+<div class="popup-login-form"> 
+  <!--Begin Login Form--> 
+  <script type="text/javascript" src="/CatalystScripts/ValidationFunctions.js?vs=b2194.r501803-phase1"></script>
+  <form class="js-login-form" onsubmit="return checkWholeForm84228(this)">
+    <div class="js-login-alert alert"></div>
+    <div class="row">
+      <div class="large-12 columns">
+        <label>Email Address <span class="req">*</span></label>
+        <input type="email" name="Username" autocomplete="off">
+      </div>
+    </div>
+    <div class="row">
+      <div class="large-12 columns">
+        <label>Password <span class="req">*</span></label>
+        <input type="password" name="Password" autocomplete="off">
+      </div>
+    </div>
+    <div class="row">
+      <div class="large-12 columns">
+        <label>
+          <input type="checkbox" name="RememberMe" checked="checked" />
+          Remember Me </label>
+      </div>
+    </div>
+    <div class="row">
+      <div class="large-12 columns">
+        <button type="submit" class="button">Log In</button>
+      </div>
+    </div>
+    <script type="text/javascript">
+	function checkWholeForm84228(theForm) {
+			var why = "";
+			if (theForm.Username) why += isEmpty(theForm.Username.value, "Username");
+			if (theForm.Password) why += isEmpty(theForm.Password.value, "Password");
+			if (why != "") {
+					alert(why);
+					return false;
+			}
+			// Once Validation is complete run ajax_login function
+			ajax_login();
+			return false;
+	}
+	</script> 
+    <!--End Login Form-->
+  </form>
+  <!--Begin Forgot Password-->
+  <div class="slide-toggle-container">
+    <div class="row">
+      <div class="large-12 columns">
+        <p><a class="slide-toggle" href="#">Lost password?</a></p>
+        <div class="slide-content">
+          <p>Enter your email address and we'll send you instructions on how to reset your password.</p>
+          <form class="js-password-reset">
+            <div class="js-reset-alert alert"></div>
+            <input type="email" name="Username" placeholder="Email Address" autocomplete="off">
+            <button type="submit" class="button secondary">Retrieve</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!--End Forgot Password--> 
+</div>
+</body>
+</html>
